@@ -350,25 +350,41 @@ function _shiftnav_toggle($target_id, $content = '', $args = array())
 		$aria_label = 'aria-label="' . esc_attr($aria_label) . '"';
 
 
+	$allowed_el_tags = ['button', 'div', 'a', 'span', 'p', 'li'];
+	$el = shiftnav_validate_tag($el, $allowed_el_tags, 'button', 'shiftnav_toggle:el');
+
 	// Escape for security
-	$el = esc_html($el);
+	// $el = esc_html($el);
 	$id = esc_attr($id);
 	$class = esc_attr($class);
 	$icon = esc_attr($icon);
 
 
+
 	echo "<$el ";
 	if ($id): ?>id="<?php echo $id; ?>"<?php endif;
-	?> class="<?php echo $class; ?>" <?php echo $tabindex_att; ?> 	<?php echo $target_att; ?> 	<?php echo $aria_label; ?>><?php
-						   if ($actions)
-							   do_action('shiftnav_toggle_before_content', $main_toggle, $target_id, $id);
-						   if ($icon)
-							   echo '<i class="fa fa-' . $icon . '"></i> ';
-						   echo apply_filters('shiftnav_toggle_content', $content, $target_id, $id);
-						   if ($actions)
-							   do_action('shiftnav_toggle_after_content', $main_toggle, $target_id, $id);
-						   echo "</$el>"; ?>
+	?> class="<?php echo trim($class); ?>" <?php echo $tabindex_att; ?> 	<?php echo $target_att; ?>
+	<?php echo $aria_label; ?>><?php
+	   if ($actions)
+		   do_action('shiftnav_toggle_before_content', $main_toggle, $target_id, $id);
+	   if ($icon)
+		   echo '<i class="fa fa-' . $icon . '"></i> ';
+	   echo apply_filters('shiftnav_toggle_content', $content, $target_id, $id);
+	   if ($actions)
+		   do_action('shiftnav_toggle_after_content', $main_toggle, $target_id, $id);
+	   echo "</$el>"; ?>
 <?php
+}
+
+function shiftnav_validate_tag($tag, $allowed_tags, $fallback, $context = '')
+{
+	$allowed_tags = apply_filters('shiftnav_allowed_tags', $allowed_tags, $context);
+	$tag = strtolower($tag);
+	$allowed_tags = array_map('strtolower', $allowed_tags);
+	if (in_array($tag, $allowed_tags, true)) {
+		return $tag;
+	}
+	return $fallback;
 }
 
 

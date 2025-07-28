@@ -1,10 +1,10 @@
 === ShiftNav - Responsive Mobile Menu ===
 Contributors: sevenspark
 Donate link: https://shiftnav.io/pro
-Tags: responsive, menu, navigation, mobile, off-canvas, app, slide, sidebar
+Tags: responsive, menu, navigation, mobile, off-canvas
 Requires at least: 6.0
-Tested up to: 6.6.2
-Stable tag: 1.8
+Tested up to: 6.8.1
+Stable tag: 1.8.1
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -55,6 +55,9 @@ Please see the [ShiftNav Quick Setup Guide](http://sevenspark.com/docs/shiftnav-
 
 
 == Changelog ==
+
+= 1.8.1 =
+* Security Fix: XSS shortcode vulnerability - required Contributor+ user access
 
 = 1.8 =
 
