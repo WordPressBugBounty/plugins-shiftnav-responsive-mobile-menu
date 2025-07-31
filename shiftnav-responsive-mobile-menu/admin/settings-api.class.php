@@ -226,6 +226,20 @@ class ShiftNav_Settings_API {
 
 		echo $html;
 	}
+	// function callback_radio_html( $args ) {
+	// 		$this->callback_radio( $args );
+
+	// 	// $value = $this->get_option( $args['id'], $args['section'], $args['std'] );
+
+	// 	// $html = '';
+	// 	// foreach ( $args['options'] as $key => $label ) {
+	// 	// 	$html .= sprintf( '<input type="radio" class="radio" id="%1$s[%2$s][%3$s]" name="%1$s[%2$s]" value="%3$s"%4$s />', $args['section'], $args['id'], $key, checked( $value, $key, false ) );
+	// 	// 	$html .= sprintf( '<label for="%1$s[%2$s][%4$s]"> %3$s</label><br>', $args['section'], $args['id'], $label, $key );
+	// 	// }
+	// 	// $html .= sprintf( '<span class="description"> %s</label>', $args['desc'] );
+
+	// 	// echo $html;
+	// }
 
 	/**
 	 * Displays a selectbox for a settings field

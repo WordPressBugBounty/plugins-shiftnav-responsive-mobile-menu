@@ -35,6 +35,17 @@ function shiftnav_get_menu_style_togglebar_hamburger_size( $field , $config_id ,
 	}
 }
 
+function shiftnav_get_menu_style_panel_width( $field , $config_id , &$menu_styles ){
+	$val = shiftnav_op( $field['name'] , $config_id );
+	$selector = ".shiftnav-{$config_id}, .shiftnav-open--{$config_id}";
+	// if( $config_id === 'shiftnav-main' ) $selector.= ", :root";
+	if( $val ){
+		// Add px suffix if the value is numeric
+		if( is_numeric( $val ) ) $val.= 'px';
+		$menu_styles[$selector]['--shiftnav-panel-width'] = $val ;
+	}
+}
+
 
 
 

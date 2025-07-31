@@ -90,6 +90,16 @@ function shiftnav_get_settings_fields()
 
 			),
 
+			40 => array(
+				'name' => 'panel_width',
+				'label' => __('Panel Width', 'shiftnav'),
+				'type' => 'text',
+				'desc' => __('Width of the menu panel. You can use pixels (e.g., "320px"), viewport units (e.g., "80vw"), or CSS functions like clamp() for responsive widths. Leave blank to use the default responsive width.', 'shiftnav'),
+				'default' => '',
+				'custom_style' => 'panel_width',
+				'customizer' => true,
+				'customizer_section' => SHIFTNAV_PRO ? 'styles_panel' : 'config',
+			),
 
 			50 => array(
 				'name' => 'skin',

@@ -322,13 +322,16 @@ class ShiftNavWalker extends Walker_Nav_Menu
 		if ($has_sub) {
 			switch ($submenu_type) {
 				case 'shift':
-					$item_output .= '<span role="button" tabindex="0" class="shiftnav-submenu-activation"><i class="fa fa-chevron-right"></i></span>';
+					$shift_icon = apply_filters('shiftnav_shift_submenu_icon', '<i class="fa fa-chevron-right"></i>');
+					$item_output .= '<span role="button" tabindex="0" class="shiftnav-submenu-activation">'.$shift_icon.'</span>';
 					break;
 				case 'accordion':
 					$open_icon = shiftnav_op('accordion_toggle_icon_open', '__current_instance__');
 					$close_icon = shiftnav_op('accordion_toggle_icon_close', '__current_instance__');
-					$item_output .= '<span role="button" tabindex="0" class="shiftnav-submenu-activation shiftnav-submenu-activation-open"><i class="fa fa-' . $open_icon . '"></i></span>';
-					$item_output .= '<span role="button" tabindex="0" class="shiftnav-submenu-activation shiftnav-submenu-activation-close"><i class="fa fa-' . $close_icon . '"></i></span>';
+					$open_icon_html = apply_filters('shiftnav_accordion_toggle_icon_open', '<i class="fa fa-' . $open_icon . '"></i>');
+					$close_icon_html = apply_filters('shiftnav_accordion_toggle_icon_close', '<i class="fa fa-' . $close_icon . '"></i>');
+					$item_output .= '<span role="button" tabindex="0" class="shiftnav-submenu-activation shiftnav-submenu-activation-open">'.$open_icon_html.'</span>';
+					$item_output .= '<span role="button" tabindex="0" class="shiftnav-submenu-activation shiftnav-submenu-activation-close">'.$close_icon_html.'</span>';
 					break;
 			}
 		}
@@ -538,7 +541,7 @@ class ShiftNavWalker extends Walker_Nav_Menu
 
 
 
-	function handle_menu_segment(&$output, $item, $depth = 0, $args = array(), $id = 0)
+	function handle_menu_segment(&$output, $item, $depth = 0, $args = null, $id = 0)
 	{
 
 		if (!defined('UBERMENU_MENU_ITEM_META_KEY')) {
@@ -556,7 +559,8 @@ class ShiftNavWalker extends Walker_Nav_Menu
 
 		$menu_object = wp_get_nav_menu_object($menu_segment);
 		if (!$menu_object) {
-			return $html . '<!-- no menu exists with ID "' . $menu_segment . '" -->';
+			$output .= '<!-- Menu Segment: no menu exists with ID "' . $menu_segment . '" -->';
+			return;
 		}
 
 

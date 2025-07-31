@@ -1,10 +1,10 @@
 === ShiftNav - Responsive Mobile Menu ===
 Contributors: sevenspark
 Donate link: https://shiftnav.io/pro
-Tags: responsive, menu, navigation, mobile, off-canvas
+Tags: responsive, menu, navigation, mobile, off-canvas, app, slide, sidebar
 Requires at least: 6.0
-Tested up to: 6.8.1
-Stable tag: 1.8.1
+Tested up to: 6.8.2
+Stable tag: 1.8.2
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -55,6 +55,12 @@ Please see the [ShiftNav Quick Setup Guide](http://sevenspark.com/docs/shiftnav-
 
 
 == Changelog ==
+
+= 1.8.2 =
+Feature: Panel Width setting
+[Pro] Feature: New filters for Accordion and Shift toggles to customize icon HTML
+Fix: Admin Javascript deprecated jQuery function
+Fix: Icon selection for additional panels in Customizer
 
 = 1.8.1 =
 * Security Fix: XSS shortcode vulnerability - required Contributor+ user access
